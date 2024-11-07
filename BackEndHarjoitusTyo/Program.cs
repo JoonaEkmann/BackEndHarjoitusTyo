@@ -49,14 +49,13 @@ builder.Services.AddScoped<iUserAuthenticationService, UserAuthenticationService
 
 var app = builder.Build();
 
-
-
+/*
 using (var scope = app.Services.CreateScope())
 {
     MessageServiceContext dbcontext = scope.ServiceProvider.GetRequiredService<MessageServiceContext>();
     dbcontext.Database.EnsureCreated();
 }
-
+*/
 
 
 // Configure the HTTP request pipeline.

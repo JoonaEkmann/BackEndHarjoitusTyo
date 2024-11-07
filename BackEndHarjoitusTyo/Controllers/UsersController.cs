@@ -27,7 +27,6 @@ public class UsersController : Controller
         /// </summary>
         /// <returns>List of users</returns>
         [HttpGet]
-        [Authorize]
 
         public async Task<ActionResult<IEnumerable<UserDTO>>> GetUsers()
         {
@@ -41,6 +40,7 @@ public class UsersController : Controller
         /// <param name="username">Name of the user</param>
         /// <returns>User information for one user or empty</returns>
         [HttpGet("{username}")]
+        [Authorize]
         public async Task<ActionResult<UserDTO>> GetUser(string username)
         {
             UserDTO? user = await _userService.GetUserAsync(username);
@@ -101,6 +101,7 @@ public class UsersController : Controller
         /// <param name="username"></param>
         /// <returns></returns>
         [HttpDelete("{username}")]
+        [Authorize]
         public async Task<IActionResult> DeleteUser(string username)
         {
             if (await _userService.DeleteUserAsync(username))
@@ -109,11 +110,6 @@ public class UsersController : Controller
             }
             
             return NotFound();
-        }
-
-        public IActionResult Index()
-        {
-            return View();
         }
     }
 }

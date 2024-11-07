@@ -82,9 +82,6 @@ namespace BackEndHarjoitusTyo.Controllers
             return CreatedAtAction("GetMessage", new { id = message.Id }, message);
         }
 
-        // DELETE: api/Messages/5
-        [HttpDelete("{id}")]
-        [Authorize]
 
         // DELETE: api/Messages/5
         [HttpDelete("{id}")]
